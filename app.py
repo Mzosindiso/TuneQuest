@@ -1,10 +1,17 @@
+import os
+from dotenv import load_dotenv
 from flask import Flask, render_template, request, jsonify
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 
+load_dotenv()  # This loads the environment variables from .env
+
 app = Flask(__name__)
 
-API_KEY = 'AIzaSyCzn1OF0Oos65INE3FCrxi0Iic1ebN8lLE'
+API_KEY = os.environ.get('YOUTUBE_API_KEY')
+if not API_KEY:
+    raise ValueError("No API Key set for YouTube API")
+
 youtube = build('youtube', 'v3', developerKey=API_KEY)
 
 @app.route('/')

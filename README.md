@@ -29,7 +29,15 @@ TuneQuest is a web application that allows users to search for and explore music
 
 1. Clone the repository
 2. Install the required Python packages: `pip install flask google-api-python-client`
-3. Set up a YouTube Data API key and replace the `API_KEY` in `app.py` with your key.
+3. Set up a YouTube Data API key:
+   - Create a project in the [Google Developers Console](https://console.developers.google.com/)
+   - Enable the YouTube Data API v3
+   - Create credentials (API Key)
+   - Create a `.env` file in the project root and add your API key:
+     ```
+     YOUTUBE_API_KEY=your_api_key_here
+     ```
+   - Make sure to add `.env` to your `.gitignore` file to prevent accidentally committing it
 4. Run the application: `python app.py`
 5. Open a web browser and navigate to `http://localhost:5000`
 
